@@ -12,7 +12,6 @@
 		"url": ""
 	},
 	"scripts": {
-		"preinstall": "node --no-warnings install/install.cjs",
 		"dev": "rm -rf node_modules/.vite && vite ./dev --host",
 		"build": "tsc --pretty"
 	},
