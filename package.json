@@ -15,8 +15,10 @@
 		"dev": "rm -rf node_modules/.vite && vite ./dev --host",
 		"build": "tsc --pretty"
 	},
+	"dependencies": {
+		"@material/material-color-utilities": "^0.2.6"
+	},
 	"devDependencies": {
-		"@material/material-color-utilities": "^0.2.6",
 		"@material/web": "^1.0.0-pre.13",
 		"typescript": "^5.1.6",
 		"vite": "^4.4.4"
