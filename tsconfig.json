@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"target": "es2022",
+		"module": "NodeNext",
+		"moduleResolution": "nodenext",
+		"strict": true,
+		"allowSyntheticDefaultImports": true,
+		"useDefineForClassFields": false,
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"inlineSources": true,
+		"resolveJsonModule": true,
+		"experimentalDecorators": true,
+		"outDir": "lib",
+		"rootDir": "src",
+		"types": ["lit", "lit/decorators.js", "vite/client"]
+	},
+	"include": ["src/**/*"],
+	"exclude": []
+}

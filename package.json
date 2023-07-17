@@ -1,0 +1,29 @@
+{
+	"name": "@vdegenne/material-color-helpers",
+	"version": "1.0.0",
+	"description": "",
+	"main": "lib/index.js",
+	"module": "lib/index.js",
+	"type": "module",
+	"author": "Valentin Degenne <vdegenne@gmail.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"scripts": {
+		"preinstall": "node --no-warnings install/install.cjs",
+		"dev": "rm -rf node_modules/.vite && vite ./dev --host",
+		"build": "tsc --pretty"
+	},
+	"devDependencies": {
+		"@material/material-color-utilities": "^0.2.6",
+		"@material/web": "^1.0.0-pre.13",
+		"typescript": "^5.1.6",
+		"vite": "^4.4.4"
+	}
+	,
+	"files": [
+		"lib"
+	]
+}
