@@ -1,6 +1,6 @@
 {
   "name": "@vdegenne/material-color-helpers",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -15,6 +15,20 @@
     "dev": "rm -rf node_modules/.vite && vite ./dev --host",
     "build": "tsc --pretty",
     "prepare": "husky install"
+  },
+  "exports": {
+    ".": {
+      "default": "./lib/index.js",
+      "types": "./lib/index.d.ts"
+    },
+    "./color-picker": {
+      "default": "./lib/elements/color-picker.js",
+      "types": "./lib/elements/color-picker.d.ts"
+    },
+    "./color-mode-picker": {
+      "default": "./lib/elements/color-mode-picker.js",
+      "types": "./lib/elements/color-mode-picker.d.ts"
+    }
   },
   "dependencies": {
     "@material/material-color-utilities": "^0.2.6"
