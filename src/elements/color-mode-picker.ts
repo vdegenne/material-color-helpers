@@ -15,11 +15,13 @@ export class ColorModePicker extends LitElement {
     return html`
       <md-outlined-segmented-button-set
         @segmented-button-set-selection=${this.onColorModeSelection}
+        style="height:40px"
       >
         <md-outlined-segmented-button
           data-value="dark"
           title="dark"
           ?selected=${this.value === 'dark'}
+          label="dark"
         >
           <md-icon slot="icon">dark_mode</md-icon>
         </md-outlined-segmented-button>
@@ -28,6 +30,7 @@ export class ColorModePicker extends LitElement {
           data-value="system"
           title="system"
           ?selected=${this.value === 'system'}
+          label="system"
         >
           <md-icon slot="icon">brightness_medium</md-icon>
         </md-outlined-segmented-button>
@@ -36,6 +39,7 @@ export class ColorModePicker extends LitElement {
           data-value="light"
           title="light"
           ?selected=${this.value === 'light'}
+          label="light"
         >
           <md-icon slot="icon">light_mode</md-icon>
         </md-outlined-segmented-button>
