@@ -1,4 +1,3 @@
-// last updated May 24, 2023
 import {LitElement, html, css, nothing} from 'lit';
 import {customElement, query, queryAll, state} from 'lit/decorators.js';
 import {repeat} from 'lit/directives/repeat.js';
@@ -9,9 +8,10 @@ import '@material/web/switch/switch.js';
 import type {MdSwitch} from '@material/web/switch/switch.js';
 import '@material/web/radio/radio.js';
 import type {MdRadio} from '@material/web/radio/radio.js';
-import '@material/web/focus/focus-ring.js';
+import '@material/web/focus/md-focus-ring.js';
 import './copy-code-button.js';
 import '../src/elements/color-picker.js';
+import '../src/elements/color-mode-picker.js';
 
 export type Scheme =
   | 'tonal'
@@ -35,7 +35,7 @@ export class ThemeGenerator extends LitElement {
   @state() outCss = '';
   @state() contrast = 0;
   @state() scheme: Scheme = 'tonal';
-  @query('input[type=color]') inputEl!: HTMLInputElement;
+  @query('color-picker') inputEl!: HTMLInputElement;
   @queryAll('input[type=color]') colorEls!: HTMLInputElement;
   @query('#dark-picker md-switch') darkSwitchEl!: MdSwitch;
   @query('#scheme-picker md-switch') schemeSwitchEl!: MdSwitch;
@@ -53,6 +53,12 @@ export class ThemeGenerator extends LitElement {
     return html`
       <h1>Material Web Color Picker</h1>
       ${warning}
+      <color-mode-picker
+        value="dark"
+        @select=${(e) => {
+          console.log(e.target.value);
+        }}
+      ></color-mode-picker>
       <div id="color-picker" class="card">
         <h2>Color</h2>
         ${this.renderColorPickers()}
@@ -98,15 +104,15 @@ export class ThemeGenerator extends LitElement {
           this.renderColorPicker(
             this.onDynamicColorInput,
             config.val,
-            config.text,
-          ),
+            config.text
+          )
       );
     }
     return repeat(
       [this.scheme],
       (key) => key,
       () =>
-        this.renderColorPicker(this.onColorInput, this.sourceColor, 'Source'),
+        this.renderColorPicker(this.onColorInput, this.sourceColor, 'Source')
     );
   }
 
@@ -277,7 +283,7 @@ export class ThemeGenerator extends LitElement {
             style="color:var(${contrast});background-color:var(${color})"
           >
             ${text}
-          </div>`,
+          </div>`
       )}
     </div>`;
   }
@@ -328,14 +334,14 @@ export class ThemeGenerator extends LitElement {
         },
         this.isDark,
         this.scheme,
-        this.contrast,
+        this.contrast
       );
     } else {
       outCss = themeFromSourceColor(
         this.sourceColor,
         this.isDark,
         this.scheme,
-        this.contrast,
+        this.contrast
       );
     }
     applyTheme(document, outCss);
