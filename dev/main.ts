@@ -11,6 +11,7 @@ import '@material/web/radio/radio.js';
 import type {MdRadio} from '@material/web/radio/radio.js';
 import '@material/web/focus/focus-ring.js';
 import './copy-code-button.js';
+import '../src/elements/color-picker.js';
 
 export type Scheme =
 	| 'tonal'
@@ -97,21 +98,22 @@ export class ThemeGenerator extends LitElement {
 					this.renderColorPicker(
 						this.onDynamicColorInput,
 						config.val,
-						config.text
-					)
+						config.text,
+					),
 			);
 		}
 		return repeat(
 			[this.scheme],
 			(key) => key,
 			() =>
-				this.renderColorPicker(this.onColorInput, this.sourceColor, 'Source')
+				this.renderColorPicker(this.onColorInput, this.sourceColor, 'Source'),
 		);
 	}
 
 	renderColorPicker(listener: Function, colorVal: string, text: string) {
 		return html` <label>
-			<span class="input-wrapper">
+			<color-picker value=${colorVal} @input=${listener}></color-picker>
+			<!-- <span class="input-wrapper">
 				<div class="overflow">
 					<input
 						type="color"
@@ -119,15 +121,15 @@ export class ThemeGenerator extends LitElement {
 						value=${colorVal}
 						@input=${listener}
 						@blur=${() => {
-							this.showColorPickerFocusRing = false;
-						}}
+				this.showColorPickerFocusRing = false;
+			}}
 					/>
 				</div>
 				<md-focus-ring
 					for="colorEl"
 					.visible=${this.showColorPickerFocusRing}
 				></md-focus-ring>
-			</span>
+			</span> -->
 			${text} color:&nbsp; <code>${colorVal}</code>
 		</label>`;
 	}
@@ -269,12 +271,13 @@ export class ThemeGenerator extends LitElement {
 			${repeat(
 				palletteConfig,
 				({text}) => text,
-				({text, color, contrast}) => html` <div
-					class="color"
-					style="color:var(${contrast});background-color:var(${color})"
-				>
-					${text}
-				</div>`
+				({text, color, contrast}) =>
+					html` <div
+						class="color"
+						style="color:var(${contrast});background-color:var(${color})"
+					>
+						${text}
+					</div>`,
 			)}
 		</div>`;
 	}
@@ -325,14 +328,14 @@ export class ThemeGenerator extends LitElement {
 				},
 				this.isDark,
 				this.scheme,
-				this.contrast
+				this.contrast,
 			);
 		} else {
 			outCss = themeFromSourceColor(
 				this.sourceColor,
 				this.isDark,
 				this.scheme,
-				this.contrast
+				this.contrast,
 			);
 		}
 		applyTheme(document, outCss);
@@ -380,6 +383,7 @@ export class ThemeGenerator extends LitElement {
 		pre {
 			background-color: var(--md-sys-color-inverse-surface);
 			color: var(--md-sys-color-inverse-on-surface);
+			color: white;
 		}
 
 		label {
