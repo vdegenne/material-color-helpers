@@ -1,7 +1,6 @@
 import {LitElement, html, css} from 'lit';
 import {live} from 'lit/directives/live.js';
 import {customElement, property, state} from 'lit/decorators.js';
-// import {redispatchEvent} from '../utils.js';
 import '@material/web/focus/md-focus-ring.js';
 
 @customElement('color-picker')
