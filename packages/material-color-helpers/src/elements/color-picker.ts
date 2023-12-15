@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit';
 import {live} from 'lit/directives/live.js';
 import {customElement, property, state} from 'lit/decorators.js';
-import '@material/web/focus/md-focus-ring.js';
+// import '@material/web/focus/md-focus-ring.js';
 
 @customElement('color-picker')
 export class ColorPicker extends LitElement {
@@ -35,15 +35,15 @@ export class ColorPicker extends LitElement {
     input {
       border: none;
       background: none;
-      min-width: 200%;
-      min-height: 200%;
+      min-width: calc(var(--color-picker-size, 40px) + 10px);
+      min-height: calc(var(--color-picker-size, 40px) + 10px);
     }
 
     .input-wrapper {
       box-sizing: border-box;
-      width: 48px;
-      height: 48px;
-      border-radius: 24px;
+      width: var(--color-picker-size, 40px);
+      height: var(--color-picker-size, 40px);
+      border-radius: 9999px;
       box-sizing: border-box;
       border: 1px solid var(--md-sys-color-on-secondary-container);
       position: relative;
@@ -63,7 +63,6 @@ export class ColorPicker extends LitElement {
 
   private handleInput(event: InputEvent) {
     this.value = (event.target as HTMLInputElement).value;
-    // redispatchEvent(this, event);
   }
 }
 

@@ -53,12 +53,19 @@ export class ThemeGenerator extends LitElement {
     return html`
       <h1>Material Web Color Picker</h1>
       ${warning}
-      <color-mode-picker
-        value="dark"
-        @select=${(e) => {
-          console.log(e.target.value);
-        }}
-      ></color-mode-picker>
+      <div style="display:flex;align-items:center;padding:24px;">
+        <color-picker
+          style="margin-right:12px;--color-picker-size:100px;"
+        ></color-picker>
+        <color-mode-picker
+          value="dark"
+          @select=${(e) => {
+            console.log(e.target.value);
+          }}
+          icon-only
+        >
+        </color-mode-picker>
+      </div>
       <div id="color-picker" class="card">
         <h2>Color</h2>
         ${this.renderColorPickers()}

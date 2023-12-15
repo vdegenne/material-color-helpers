@@ -1,0 +1,7 @@
+{
+	"name": "@vdegenne-internal/test",
+	"type": "module",
+	"devDependencies": {
+		"@vdegenne/material-color-helpers": "^1.3.10"
+	}
+}

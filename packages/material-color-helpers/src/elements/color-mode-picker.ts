@@ -1,8 +1,8 @@
-import {LitElement, html} from 'lit';
+import {LitElement, html, css} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import '@material/web/labs/segmentedbuttonset/outlined-segmented-button-set.js';
-import '@material/web/labs/segmentedbutton/outlined-segmented-button.js';
-import '@material/web/icon/icon.js';
+// import '@material/web/labs/segmentedbuttonset/outlined-segmented-button-set.js';
+// import '@material/web/labs/segmentedbutton/outlined-segmented-button.js';
+// import '@material/web/icon/icon.js';
 import type {MdOutlinedSegmentedButton} from '@material/web/labs/segmentedbutton/outlined-segmented-button.js';
 
 export type ColorMode = 'light' | 'system' | 'dark';
@@ -11,17 +11,25 @@ export type ColorMode = 'light' | 'system' | 'dark';
 export class ColorModePicker extends LitElement {
   @property() value: ColorMode = 'system';
 
+  @property({type: Boolean, attribute: 'icon-only', reflect: true}) iconOnly =
+    false;
+
+  static styles = css`
+    :host([icon-only]) {
+      min-width: 205px;
+    }
+  `;
+
   render() {
     return html`
       <md-outlined-segmented-button-set
         @segmented-button-set-selection=${this.onColorModeSelection}
-        style="height:40px"
       >
         <md-outlined-segmented-button
           data-value="dark"
           title="dark"
           ?selected=${this.value === 'dark'}
-          label="dark"
+          label="${this.iconOnly ? '' : 'dark'}"
         >
           <md-icon slot="icon">dark_mode</md-icon>
         </md-outlined-segmented-button>
@@ -30,7 +38,7 @@ export class ColorModePicker extends LitElement {
           data-value="system"
           title="system"
           ?selected=${this.value === 'system'}
-          label="system"
+          label="${this.iconOnly ? '' : 'system'}"
         >
           <md-icon slot="icon">brightness_medium</md-icon>
         </md-outlined-segmented-button>
@@ -39,7 +47,7 @@ export class ColorModePicker extends LitElement {
           data-value="light"
           title="light"
           ?selected=${this.value === 'light'}
-          label="light"
+          label="${this.iconOnly ? '' : 'light'}"
         >
           <md-icon slot="icon">light_mode</md-icon>
         </md-outlined-segmented-button>
