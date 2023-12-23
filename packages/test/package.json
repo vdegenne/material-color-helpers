@@ -1,7 +1,11 @@
 {
 	"name": "@vdegenne-internal/test",
 	"type": "module",
+	"scripts": {
+		"dev": "vite"
+	},
 	"devDependencies": {
-		"@vdegenne/material-color-helpers": "^1.3.10"
+		"@vdegenne/material-color-helpers": "^1.3.10",
+		"vite": "^4.4.4"
 	}
 }

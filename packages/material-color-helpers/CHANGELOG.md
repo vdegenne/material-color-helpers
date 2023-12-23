@@ -1,5 +1,11 @@
 # @vdegenne/material-color-helpers
 
+## 1.5.0
+
+### Minor Changes
+
+- if stylesheet `material-theme` save to localstorage
+
 ## 1.4.0
 
 ### Minor Changes

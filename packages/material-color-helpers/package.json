@@ -1,6 +1,6 @@
 {
   "name": "@vdegenne/material-color-helpers",
-  "version": "1.4.0",
+  "version": "1.5.0",
   "description": "",
   "type": "module",
   "author": "Valentin Degenne <vdegenne@gmail.com>",
@@ -13,20 +13,13 @@
     "dev": "rm -rf node_modules/.vite && vite ./dev --host",
     "build": "tsc --pretty"
   },
+  "main": "./lib/index.js",
   "exports": {
     ".": {
       "default": "./lib/index.js",
       "types": "./lib/index.d.ts"
     },
     "./elements/*": "./lib/elements/*"
-  },
-  "devDependencies": {
-    "@material/web": "^1.0.1",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.4"
-  },
-  "peerDependencies": {
-    "@material/web": "^1.0.0 || nightly"
   },
   "files": [
     "lib"
