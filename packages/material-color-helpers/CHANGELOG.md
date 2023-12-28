@@ -1,5 +1,11 @@
 # @vdegenne/material-color-helpers
 
+## 1.6.0
+
+### Minor Changes
+
+- fix module map to help tree shaking
+
 ## 1.5.1
 
 ### Patch Changes

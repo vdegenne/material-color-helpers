@@ -13,7 +13,6 @@ import {
   SchemeContent,
   CorePalette,
 } from '@material/material-color-utilities';
-import {applyThemeString} from './apply-theme-string.js';
 
 export type Scheme =
   | 'tonal'
