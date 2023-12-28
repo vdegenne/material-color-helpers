@@ -1,5 +1,11 @@
 # @vdegenne/material-color-helpers
 
+## 1.5.1
+
+### Patch Changes
+
+- Add :host when applying theme to a shadow root
+
 ## 1.5.0
 
 ### Minor Changes
