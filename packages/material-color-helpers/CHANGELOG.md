@@ -1,5 +1,11 @@
 # @vdegenne/material-color-helpers
 
+## 1.6.4
+
+### Patch Changes
+
+- Add elements index.js in nodenext
+
 ## 1.6.0
 
 ### Minor Changes

@@ -4,12 +4,23 @@
 		"packages/*"
 	],
 	"scripts": {
+		"build": "wireit",
 		"prepare": "husky install"
+	},
+	"wireit": {
+		"build": {
+			"dependencies": [
+				"./packages/material-color-helpers:build"
+			]
+		}
 	},
 	"devDependencies": {
 		"@changesets/cli": "^2.26.2",
 		"@material/web": "^1.1.1",
+		"@vdegenne/material-color-helpers": "^1.5.0",
 		"husky": "^8.0.3",
-		"typescript": "^5.1.6"
+		"typescript": "^5.3.3",
+		"wireit": "^0.14.4"
 	}
 }
+
