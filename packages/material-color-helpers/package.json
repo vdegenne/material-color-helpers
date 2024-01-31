@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/material-color-helpers",
-	"version": "1.6.9",
+	"version": "1.7.0",
 	"description": "",
 	"type": "module",
 	"author": "Valentin Degenne <vdegenne@gmail.com>",
@@ -32,7 +32,6 @@
 			"default": "./lib/index.js",
 			"types": "./lib/index.d.ts"
 		},
-		"./material.js": "./lib/material.js",
 		"./elements.js": {
 			"default": "./lib/elements/index.js",
 			"types": "./lib/elements/index.d.ts"
