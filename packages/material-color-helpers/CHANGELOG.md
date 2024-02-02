@@ -1,5 +1,11 @@
 # @vdegenne/material-color-helpers
 
+## 1.8.0
+
+### Minor Changes
+
+- Add fixed colors to the palette
+
 ## 1.7.0
 
 ### Minor Changes
