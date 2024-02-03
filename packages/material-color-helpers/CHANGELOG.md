@@ -1,5 +1,11 @@
 # @vdegenne/material-color-helpers
 
+## 1.9.0
+
+### Minor Changes
+
+- change icon-only to icons-only attribute
+
 ## 1.8.0
 
 ### Minor Changes

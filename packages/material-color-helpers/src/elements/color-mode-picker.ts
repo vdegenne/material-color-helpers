@@ -8,11 +8,11 @@ export type ColorMode = 'light' | 'system' | 'dark';
 export class ColorModePicker extends LitElement {
 	@property() value: ColorMode = 'system';
 
-	@property({type: Boolean, attribute: 'icon-only', reflect: true}) iconOnly =
+	@property({type: Boolean, attribute: 'icons-only', reflect: true}) iconsOnly =
 		false;
 
 	static styles = css`
-		:host([icon-only]) {
+		:host([icons-only]) {
 			min-width: 205px;
 		}
 	`;
@@ -26,7 +26,7 @@ export class ColorModePicker extends LitElement {
 					data-value="dark"
 					title="dark"
 					?selected=${this.value === 'dark'}
-					label="${this.iconOnly ? '' : 'dark'}"
+					label="${this.iconsOnly ? '' : 'dark'}"
 				>
 					<md-icon slot="icon">dark_mode</md-icon>
 				</md-outlined-segmented-button>
@@ -35,7 +35,7 @@ export class ColorModePicker extends LitElement {
 					data-value="system"
 					title="system"
 					?selected=${this.value === 'system'}
-					label="${this.iconOnly ? '' : 'system'}"
+					label="${this.iconsOnly ? '' : 'system'}"
 				>
 					<md-icon slot="icon">brightness_medium</md-icon>
 				</md-outlined-segmented-button>
@@ -44,7 +44,7 @@ export class ColorModePicker extends LitElement {
 					data-value="light"
 					title="light"
 					?selected=${this.value === 'light'}
-					label="${this.iconOnly ? '' : 'light'}"
+					label="${this.iconsOnly ? '' : 'light'}"
 				>
 					<md-icon slot="icon">light_mode</md-icon>
 				</md-outlined-segmented-button>
