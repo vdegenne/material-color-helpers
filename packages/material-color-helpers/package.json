@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/material-color-helpers",
-	"version": "1.10.0",
+	"version": "1.11.0",
 	"description": "",
 	"type": "module",
 	"author": "Valentin Degenne <vdegenne@gmail.com>",
@@ -48,6 +48,6 @@
 		"@material/material-color-utilities": "^0.2.7"
 	},
 	"devDependencies": {
-		"@material/material-color-utilities": "^0.2.7"
+		"@material/material-color-utilities": "^0.3.0"
 	}
 }

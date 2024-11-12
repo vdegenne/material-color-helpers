@@ -1,5 +1,11 @@
 # @vdegenne/material-color-helpers
 
+## 1.11.0
+
+### Minor Changes
+
+- Provides more helpers
+
 ## 1.9.0
 
 ### Minor Changes
