@@ -34,8 +34,8 @@ export class ColorPicker extends LitElement {
 		input {
 			border: none;
 			background: none;
-			min-width: calc(var(--color-picker-size, 40px) + 10px);
-			min-height: calc(var(--color-picker-size, 40px) + 10px);
+			min-width: calc(var(--color-picker-size, 40px) + 30px);
+			min-height: calc(var(--color-picker-size, 40px) + 30px);
 		}
 
 		.input-wrapper {
