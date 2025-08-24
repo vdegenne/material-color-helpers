@@ -5,8 +5,8 @@
  */
 
 type WithStyleSheet = typeof globalThis & {
-	[stylesheetName: string]: CSSStyleSheet | undefined;
-};
+	[stylesheetName: string]: CSSStyleSheet | undefined
+}
 
 /**
  * Applies a stringified CSS theme to a document or shadowroot by creating or
@@ -26,45 +26,49 @@ type WithStyleSheet = typeof globalThis & {
 export function applyThemeString(
 	doc: DocumentOrShadowRoot,
 	themeString: string,
-	ssName?: string
+	ssName?: string,
 ) {
-	let sheet: CSSStyleSheet | undefined;
+	let sheet: CSSStyleSheet | undefined
 	if (ssName) {
 		// Get constructable stylesheet
-		sheet = (globalThis as WithStyleSheet)[ssName];
+		sheet = (globalThis as WithStyleSheet)[ssName]
 	}
 	// Create a new sheet if it doesn't exist already and save it globally.
 	if (!sheet) {
-		sheet = new CSSStyleSheet();
-		doc.adoptedStyleSheets.push(sheet);
+		sheet = new CSSStyleSheet()
+		doc.adoptedStyleSheets.push(sheet)
 		if (ssName) {
-			(globalThis as WithStyleSheet)[ssName] = sheet;
+			;(globalThis as WithStyleSheet)[ssName] = sheet
 		}
 	}
 
-	sheet.replaceSync(themeString);
+	sheet.replaceSync(themeString)
 
 	// Material agnostic
 	if (ssName === 'material-theme') {
-		// Set the color of the URL bar because we are cool like that.
-		const surfaceContainer = themeString.match(
-			/--md-sys-color-surface-container:(.+?);/
-		)?.[1];
-		if (surfaceContainer) {
-			let meta = document.querySelector('meta[name="theme-color"]');
-			if (!meta) {
-				meta = document.createElement('meta');
-				meta.setAttribute('name', 'theme-color');
-				document.head.appendChild(meta);
+		function applyNewMeta() {
+			const surfaceContainer = themeString.match(
+				/--md-sys-color-surface-container:(.+?);/,
+			)?.[1]
+			if (surfaceContainer) {
+				let meta = document.querySelector<HTMLMetaElement>(
+					'meta[name="theme-color"]',
+				)
+				if (meta) {
+					meta.remove() // remove old
+				}
+				meta = document.createElement('meta')
+				document.head.prepend(meta)
+				meta.name = 'theme-color'
+				meta.content = surfaceContainer
+				localStorage.setItem('surface-container-color', surfaceContainer)
 			}
-			// Weird trick because sometimes the value of themeColor in the manifest is applied after this
-			// We make sure this is always the visible theme by deferring it.
-			// setTimeout(() => {
-			meta!.setAttribute('content', surfaceContainer);
-			// }, 500);
+			window.removeEventListener('load', applyNewMeta)
 		}
-		// Save the style in local storage so it can be retrieved
-		// early when the page reloads.
-		localStorage.setItem(ssName, themeString);
+		window.addEventListener('load', () => {
+			setTimeout(applyNewMeta, 100)
+		})
+		applyNewMeta()
+		localStorage.setItem(ssName, themeString)
 	}
 }

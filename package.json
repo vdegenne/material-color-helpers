@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/material-color-helpers",
-	"version": "1.11.2",
+	"version": "1.11.3",
 	"description": "",
 	"type": "module",
 	"author": "Valentin Degenne <vdegenne@gmail.com>",
@@ -39,7 +39,7 @@
 		"./elements/*": "./lib/elements/*"
 	},
 	"files": [
-		"lib"
+		"./lib"
 	],
 	"lint-staged": {
 		"**/*.{cjs,html,js,json,md,ts}": "prettier --single-quote --no-bracket-spacing --write"
@@ -48,6 +48,10 @@
 		"@material/material-color-utilities": "^0.2.7"
 	},
 	"devDependencies": {
-		"@material/material-color-utilities": "^0.3.0"
+		"@material/material-color-utilities": "^0.3.0",
+		"@material/web": "^2.4.0",
+		"lit": "^3.3.1",
+		"typescript": "^5.9.2",
+		"wireit": "^0.14.12"
 	}
 }
