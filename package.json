@@ -1,0 +1,53 @@
+{
+	"name": "@vdegenne/material-color-helpers",
+	"version": "1.11.2",
+	"description": "",
+	"type": "module",
+	"author": "Valentin Degenne <vdegenne@gmail.com>",
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"scripts": {
+		"dev": "rm -rf node_modules/.vite && vite ./dev --host",
+		"build": "wireit"
+	},
+	"wireit": {
+		"build": {
+			"command": "tsc --pretty",
+			"clean": "if-file-deleted",
+			"files": [
+				"tsconfig.json",
+				"src"
+			],
+			"output": [
+				"lib"
+			]
+		}
+	},
+	"main": "./lib/index.js",
+	"exports": {
+		".": {
+			"default": "./lib/index.js",
+			"types": "./lib/index.d.ts"
+		},
+		"./elements.js": {
+			"default": "./lib/elements/index.js",
+			"types": "./lib/elements/index.d.ts"
+		},
+		"./elements/*": "./lib/elements/*"
+	},
+	"files": [
+		"lib"
+	],
+	"lint-staged": {
+		"**/*.{cjs,html,js,json,md,ts}": "prettier --single-quote --no-bracket-spacing --write"
+	},
+	"peerDependencies": {
+		"@material/material-color-utilities": "^0.2.7"
+	},
+	"devDependencies": {
+		"@material/material-color-utilities": "^0.3.0"
+	}
+}
