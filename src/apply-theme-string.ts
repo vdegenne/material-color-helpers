@@ -65,6 +65,7 @@ export function applyThemeString(
 			}
 			window.removeEventListener('load', applyNewMeta)
 		}
+		// TODO: Make so it will debounce to avoid overload
 		window.addEventListener('load', () => {
 			setTimeout(applyNewMeta, 100)
 		})
