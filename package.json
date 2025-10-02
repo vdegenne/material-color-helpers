@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/material-color-helpers",
-	"version": "1.11.4",
+	"version": "1.11.5",
 	"description": "",
 	"type": "module",
 	"author": "Valentin Degenne <vdegenne@gmail.com>",
@@ -29,14 +29,33 @@
 	"main": "./lib/index.js",
 	"exports": {
 		".": {
-			"default": "./lib/index.js",
+			"import": "./lib/index.js",
 			"types": "./lib/index.d.ts"
 		},
+		"./apply-theme.js": {
+			"import": "./lib/apply-theme.js",
+			"types": "./lib/apply-theme.d.ts"
+		},
+		"./material-color-helpers.js": {
+			"import": "./lib/apply-theme.js",
+			"types": "./lib/apply-theme.d.ts"
+		},
 		"./elements.js": {
-			"default": "./lib/elements/index.js",
+			"import": "./lib/elements/index.js",
 			"types": "./lib/elements/index.d.ts"
 		},
-		"./elements/*": "./lib/elements/*"
+		"./elements/color-mode-picker.js": {
+			"import": "./lib/elements/color-mode-picker.js",
+			"types": "./lib/elements/color-mode-picker.d.ts"
+		},
+		"./elements/color-picker.js": {
+			"import": "./lib/elements/color-picker.js",
+			"types": "./lib/elements/color-picker.d.ts"
+		},
+		"./scheme-from-image.js": {
+			"import": "./lib/scheme-from-image.js",
+			"types": "./lib/scheme-from-image.d.ts"
+		}
 	},
 	"files": [
 		"./lib"
@@ -44,14 +63,13 @@
 	"lint-staged": {
 		"**/*.{cjs,html,js,json,md,ts}": "prettier --single-quote --no-bracket-spacing --write"
 	},
-	"peerDependencies": {
-		"@material/material-color-utilities": "^0.2.7"
-	},
 	"devDependencies": {
-		"@material/material-color-utilities": "^0.3.0",
 		"@material/web": "^2.4.0",
 		"lit": "^3.3.1",
 		"typescript": "^5.9.2",
 		"wireit": "^0.14.12"
+	},
+	"dependencies": {
+		"@material/material-color-utilities": "^0.3.0"
 	}
 }
