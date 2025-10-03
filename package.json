@@ -1,6 +1,6 @@
 {
 	"name": "@vdegenne/material-color-helpers",
-	"version": "1.11.5",
+	"version": "1.11.6",
 	"description": "",
 	"type": "module",
 	"author": "Valentin Degenne <vdegenne@gmail.com>",
@@ -30,7 +30,7 @@
 	"exports": {
 		".": {
 			"import": "./lib/index.js",
-			"types": "./lib/index.d.ts"
+			"types": "./types.d.ts"
 		},
 		"./apply-theme.js": {
 			"import": "./lib/apply-theme.js",
@@ -58,7 +58,8 @@
 		}
 	},
 	"files": [
-		"./lib"
+		"./lib",
+		"./types.d.ts"
 	],
 	"lint-staged": {
 		"**/*.{cjs,html,js,json,md,ts}": "prettier --single-quote --no-bracket-spacing --write"
