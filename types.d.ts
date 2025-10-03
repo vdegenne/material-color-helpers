@@ -1,5 +1,5 @@
 declare global {
-	declare namespace MaterialColorHelpers {
+	namespace MaterialColorHelpers {
 		// TODO: to update
 		type Variant = 'tonal'
 	}
